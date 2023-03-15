@@ -8,18 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		8C64C63D29B8C15E002C7CE6 /* AppStore_UIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64C63C29B8C15E002C7CE6 /* AppStore_UIApp.swift */; };
-		8C64C63F29B8C15E002C7CE6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64C63E29B8C15E002C7CE6 /* ContentView.swift */; };
+		8C64C63F29B8C15E002C7CE6 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64C63E29B8C15E002C7CE6 /* MainView.swift */; };
 		8C64C64129B8C15E002C7CE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C64C64029B8C15E002C7CE6 /* Assets.xcassets */; };
 		8C64C64529B8C15E002C7CE6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C64C64429B8C15E002C7CE6 /* Preview Assets.xcassets */; };
+		8C64C64E29C200EA002C7CE6 /* TodayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64C64D29C200EA002C7CE6 /* TodayItem.swift */; };
+		8C64C65029C2058E002C7CE6 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C64C64F29C2058E002C7CE6 /* CardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8C64C63929B8C15E002C7CE6 /* AppStore UI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AppStore UI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C64C63C29B8C15E002C7CE6 /* AppStore_UIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStore_UIApp.swift; sourceTree = "<group>"; };
-		8C64C63E29B8C15E002C7CE6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8C64C63E29B8C15E002C7CE6 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		8C64C64029B8C15E002C7CE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8C64C64229B8C15E002C7CE6 /* AppStore_UI.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppStore_UI.entitlements; sourceTree = "<group>"; };
 		8C64C64429B8C15E002C7CE6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8C64C64D29C200EA002C7CE6 /* TodayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayItem.swift; sourceTree = "<group>"; };
+		8C64C64F29C2058E002C7CE6 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +56,9 @@
 		8C64C63B29B8C15E002C7CE6 /* AppStore UI */ = {
 			isa = PBXGroup;
 			children = (
+				8C64C64C29C200DD002C7CE6 /* Model */,
+				8C64C64B29C2009C002C7CE6 /* View */,
 				8C64C63C29B8C15E002C7CE6 /* AppStore_UIApp.swift */,
-				8C64C63E29B8C15E002C7CE6 /* ContentView.swift */,
 				8C64C64029B8C15E002C7CE6 /* Assets.xcassets */,
 				8C64C64229B8C15E002C7CE6 /* AppStore_UI.entitlements */,
 				8C64C64329B8C15E002C7CE6 /* Preview Content */,
@@ -67,6 +72,23 @@
 				8C64C64429B8C15E002C7CE6 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		8C64C64B29C2009C002C7CE6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8C64C63E29B8C15E002C7CE6 /* MainView.swift */,
+				8C64C64F29C2058E002C7CE6 /* CardView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		8C64C64C29C200DD002C7CE6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8C64C64D29C200EA002C7CE6 /* TodayItem.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,7 +161,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C64C63F29B8C15E002C7CE6 /* ContentView.swift in Sources */,
+				8C64C64E29C200EA002C7CE6 /* TodayItem.swift in Sources */,
+				8C64C63F29B8C15E002C7CE6 /* MainView.swift in Sources */,
+				8C64C65029C2058E002C7CE6 /* CardView.swift in Sources */,
 				8C64C63D29B8C15E002C7CE6 /* AppStore_UIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
