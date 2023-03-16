@@ -18,7 +18,8 @@ struct TodayItem : Identifiable {
 }
 
 var items =  [
-    TodayItem(title: "Forza Street", category: "Ultimate Street Racing Game", overlay: "GAME OF THE DAY", contentImage: "b1", logo: "l1")
-    TodayItem(title: "Roblox", category: "Adventure", overlay: "Lil Nas X Performs In Roblox", contentImage: "b2", logo: "l2")
+    TodayItem(title: "Mountain", category: "Ultimate Street Racing Game", overlay: "GAME OF THE DAY", contentImage: "mountain", logo: "mountainLogo"),
+    TodayItem(title: "Sky", category: "Adventure", overlay: "Lil Nas X Performs In Roblox", contentImage: "sky", logo: "skyLogo"),
+    TodayItem(title: "Tree", category: "Adventure", overlay: "Lil Nas X Performs In Roblox", contentImage: "tree", logo: "treeLogo")
     
 ]

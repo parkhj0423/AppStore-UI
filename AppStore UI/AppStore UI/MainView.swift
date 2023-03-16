@@ -12,10 +12,11 @@ struct MainView: View {
     var body: some View {
         ScrollView {
             ForEach(items) { item in
-                
+                CardView(item: item)
             }
+            .padding(.bottom)
         }
-        .background(Color.primary.opacity(0.05).ignoresSafeArea())
+        .background(Color.primary.opacity(0.1).ignoresSafeArea())
     }
 }
 
