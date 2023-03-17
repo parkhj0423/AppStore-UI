@@ -12,11 +12,14 @@ struct CardView: View {
     @Environment(\.colorScheme) var color
     var item : TodayItem
     
+    var animation : Namespace.ID
+    
     var body: some View {
         VStack {
             Image(item.contentImage)
                 .resizable()
                 .aspectRatio(contentMode: .fill)
+                .matchedGeometryEffect(id: item.contentImage, in: animation)
                 .frame(height: 250)
                
             
@@ -59,6 +62,7 @@ struct CardView: View {
             }
             .padding()
             .background(Color.primary.opacity(0.4))
+            .matchedGeometryEffect(id: item.id, in: animation)
            
         }
         .cornerRadius(15)
@@ -67,8 +71,3 @@ struct CardView: View {
     }
 }
 
-struct CardView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardView(item: items.first!)
-    }
-}
