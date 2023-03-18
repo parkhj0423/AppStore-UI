@@ -8,6 +8,10 @@
 import Foundation
 
 class DetailViewModel : ObservableObject {
-    @Published var selectedItem = TodayItem(title: "", category: "", overlay: "", contentImage: "", logo: "")
+    @Published var selectedItem : TodayItem?
     @Published var show = false
+    
+    public func setItem(item : TodayItem?) {
+        self.selectedItem = item
+    }
 }

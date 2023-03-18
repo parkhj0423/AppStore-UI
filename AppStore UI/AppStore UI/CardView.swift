@@ -15,10 +15,9 @@ struct CardView: View {
     var animation : Namespace.ID
     
     var body: some View {
-        VStack {
+        VStack(spacing : 0) {
             Image(item.contentImage)
                 .resizable()
-                .aspectRatio(contentMode: .fill)
                 .matchedGeometryEffect(id: item.contentImage, in: animation)
                 .frame(height: 250)
                
@@ -60,6 +59,7 @@ struct CardView: View {
                 }
                 
             }
+            .frame(height : 50)
             .padding()
             .background(Color.primary.opacity(0.4))
             .matchedGeometryEffect(id: item.id, in: animation)

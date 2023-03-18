@@ -19,7 +19,7 @@ struct MainView: View {
                     CardView(item: item, animation: animation)
                         .onTapGesture {
                             withAnimation(.interactiveSpring(response: 0.5, dampingFraction: 0.8, blendDuration: 0.8)) {
-                                detailViewModel.selectedItem = item
+                                detailViewModel.setItem(item: item)
                                 detailViewModel.show.toggle()
                             }
                         }
@@ -28,7 +28,7 @@ struct MainView: View {
             }
             
             if detailViewModel.show {
-                DetailView(detail: detailViewModel, animation: animation)
+                DetailView(viewModel: detailViewModel, animation: animation)
             }
         }
         .background(Color.primary.opacity(0.1).ignoresSafeArea())
