@@ -27,8 +27,8 @@ struct MainView: View {
                 .padding(.bottom)
             }
             
-            if detailViewModel.show {
-                DetailView(viewModel: detailViewModel, animation: animation)
+            if let item = detailViewModel.selectedItem, detailViewModel.show {
+                DetailView(viewModel: detailViewModel, item : item, animation: animation)
             }
         }
         .background(Color.primary.opacity(0.1).ignoresSafeArea())

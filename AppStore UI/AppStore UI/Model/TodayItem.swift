@@ -18,8 +18,8 @@ struct TodayItem : Identifiable {
 }
 
 var items =  [
-    TodayItem(title: "Mountain", category: "Hardest Mountain Ever!!", overlay: "OVERLAY", contentImage: "mountain", logo: "mountainLogo"),
+    TodayItem(title: "Mountain", category: "Hardest Mountain Ever!!", overlay: "Mountain", contentImage: "mountain", logo: "mountainLogo"),
     TodayItem(title: "Sky", category: "Feel Free!", overlay: "Beautiful Sky", contentImage: "sky", logo: "skyLogo"),
-    TodayItem(title: "Tree", category: "Peaceful And Calmness", overlay: "OVERLAY", contentImage: "tree", logo: "treeLogo")
+    TodayItem(title: "Tree", category: "Peaceful And Calmness", overlay: "Tree Alone", contentImage: "tree", logo: "treeLogo")
     
 ]

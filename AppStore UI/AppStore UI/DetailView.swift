@@ -9,20 +9,23 @@ import SwiftUI
 
 struct DetailView: View {
     @ObservedObject var viewModel : DetailViewModel
+    var item : TodayItem
     var animation : Namespace.ID
+    
+    @State var scale : CGFloat = 1
     
     var body: some View {
         ScrollView {
             VStack(spacing : 0) {
                 ZStack(alignment: Alignment(horizontal: .center, vertical: .top)) {
-                    Image(viewModel.selectedItem?.contentImage ?? "")
+                    Image(item.contentImage)
                         .resizable()
-                        .matchedGeometryEffect(id: viewModel.selectedItem?.contentImage ?? "", in: animation)
+                        .matchedGeometryEffect(id: item.contentImage, in: animation)
                         .frame(width : UIScreen.main.bounds.width, height: UIScreen.main.bounds.height / 2.5)
                     
                     HStack {
-                        Text(viewModel.selectedItem?.overlay ?? "")
-                            .font(.title)ㅡ 수
+                        Text(item.overlay)
+                            .font(.title)
                             .fontWeight(.heavy)
                             .foregroundColor(.white)
                         
@@ -44,23 +47,28 @@ struct DetailView: View {
                     .padding(.horizontal)
                     .padding(.top, UIApplication.shared.windows.first!.safeAreaInsets.top + 10)
                 }
+                .gesture(
+                    DragGesture()
+                        .onChanged(onChanged(value:))
+                        .onEnded(onEnded(value:))
+                )
                 
                 
                 HStack {
-                    Image(viewModel.selectedItem?.logo ?? "")
+                    Image(item.logo)
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                         .frame(width: 65, height: 65)
                         .cornerRadius(15)
                     
                     VStack(alignment: .leading, spacing : 6) {
-                        Text(viewModel.selectedItem?.title ?? "")
-                            .foregroundColor(.white)
+                        Text(item.title)
+                            .foregroundColor(.black)
                             .fontWeight(.bold)
                         
-                        Text(viewModel.selectedItem?.category ?? "")
+                        Text(item.category)
                             .font(.caption)
-                            .foregroundColor(.white)
+                            .foregroundColor(.black)
                     }
                     
                     Spacer(minLength: 0)
@@ -73,7 +81,7 @@ struct DetailView: View {
                                 .font(.system(size: 14, weight: .bold))
                                 .padding(.vertical, 5)
                                 .padding(.horizontal)
-                                .background(Color.white)
+                                .background(Color.black.opacity(0.3))
                                 .clipShape(Capsule())
                         }
                         
@@ -83,7 +91,7 @@ struct DetailView: View {
                     }
                     
                 }
-                .matchedGeometryEffect(id: viewModel.selectedItem?.id, in: animation)
+                .matchedGeometryEffect(id: item.id, in: animation)
                 .padding()
                 
                 
@@ -91,10 +99,33 @@ struct DetailView: View {
                     .foregroundColor(.black)
                     .padding()
                 
-                Spacer()
             }
         }
+        .scaleEffect(scale)
         .background(Color.white.ignoresSafeArea())
         .ignoresSafeArea(.all, edges: .top)
+    }
+    
+    private func onChanged(value : DragGesture.Value) {
+        // scale value를 전체 높이에 비례하여 계산
+        let scale = value.translation.height / UIScreen.main.bounds.height
+        
+        if 1 - scale > 0.7 {
+            self.scale = 1 - scale
+        }
+        
+    }
+    
+    private func onEnded(value : DragGesture.Value) {
+        withAnimation(.spring()) {
+            print(scale)
+            if scale < 0.9 {
+                viewModel.setItem(item: nil)
+                viewModel.show.toggle()
+                
+            } else {
+                scale = 1
+            }
+        }
     }
 }
