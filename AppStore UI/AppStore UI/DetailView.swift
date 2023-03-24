@@ -15,7 +15,7 @@ struct DetailView: View {
     @State var scale : CGFloat = 1
     
     var body: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             VStack(spacing : 0) {
                 ZStack(alignment: Alignment(horizontal: .center, vertical: .top)) {
                     Image(item.contentImage)
@@ -46,8 +46,7 @@ struct DetailView: View {
                     }
                     .padding(.horizontal)
                     .padding(.top, UIApplication.shared.windows.first!.safeAreaInsets.top + 10)
-                }
-                .gesture(
+                }.gesture(
                     DragGesture()
                         .onChanged(onChanged(value:))
                         .onEnded(onEnded(value:))
@@ -94,10 +93,10 @@ struct DetailView: View {
                 .matchedGeometryEffect(id: item.id, in: animation)
                 .padding()
                 
-                
                 Text("There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.\n\n All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable.\n\n The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.")
                     .foregroundColor(.black)
                     .padding()
+                
                 
             }
         }
@@ -106,19 +105,18 @@ struct DetailView: View {
         .ignoresSafeArea(.all, edges: .top)
     }
     
-    private func onChanged(value : DragGesture.Value) {
+    func onChanged(value : DragGesture.Value) {
         // scale value를 전체 높이에 비례하여 계산
         let scale = value.translation.height / UIScreen.main.bounds.height
-        
+        print(1 - scale)
         if 1 - scale > 0.7 {
             self.scale = 1 - scale
         }
         
     }
     
-    private func onEnded(value : DragGesture.Value) {
+    func onEnded(value : DragGesture.Value) {
         withAnimation(.spring()) {
-            print(scale)
             if scale < 0.9 {
                 viewModel.setItem(item: nil)
                 viewModel.show.toggle()
