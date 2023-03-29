@@ -100,9 +100,10 @@ struct DetailView: View {
                 
             }
         }
-        .scaleEffect(scale)
+        
         .background(Color.white.ignoresSafeArea())
         .ignoresSafeArea(.all, edges: .top)
+        .scaleEffect(scale)
     }
     
     func onChanged(value : DragGesture.Value) {
